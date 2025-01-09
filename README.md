@@ -2,17 +2,22 @@
 Yolo annotator created with the help of Copilot Claude 3.5 Sonnet
 
 
-Compilation
+## Compilation
+Make sure you have installed OpenCV.
 ```bash
 git clone https://github.com/deeplearningplus/yolo_annotator
 cd yolo_annotator
 
-mkdir -p build && cd build && cmake .. && make
+# 1. Compile it with g++
+g++ -o yolo_annotator main.cpp `pkg-config --cflags --libs opencv` -std=c++17 -Wall -O3
+
+# 2. Compile it with cmake and make
+mkdir -p build && cd build && cmake .. && make && mv yolo_annotator ../
 ```
 
-Usage
+## Usage
 ```bash
-./build/yolo_annotator images obj.names
+./yolo_annotator images obj.names
 ```
 
 
