@@ -27,7 +27,7 @@ private:
     cv::Point startPoint;
     cv::Point endPoint;
     int currentClass = 0;
-	size_t processedCount = 0;
+    size_t processedCount = 0;
     
 public:
     YoloAnnotator(const std::string& directoryPath, const std::string& classesFile) {
@@ -258,6 +258,7 @@ public:
                     if (currentImageIndex < imageFiles.size() - 1) {
                         currentImageIndex++;
                         loadCurrentImage();
+			std::cout << "Reviewed " << currentImageIndex << " images" << std::endl;
                     }
                     break;
                 
@@ -278,6 +279,7 @@ public:
                         currentBoxes.pop_back();
                         saveAnnotations();
                         updateDisplay();
+			std::cout << "Reviewed " << currentImageIndex << " images" << std::endl;
                     }
                     break;
 
